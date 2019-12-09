@@ -1,0 +1,51 @@
+.line-graph-outer {
+    margin-top: 100px;
+    position: relative;
+    max-width: 100%;
+}
+
+svg {
+    opacity: 0;
+    animation: fadeIn .3s forwards;
+
+    .bg {
+        transform: translateY(-100%);
+        animation: dropIn 2s ease-in-out forwards;
+    }
+
+    .line {
+        &.transition {
+            transition: stroke-dasharray 3s;
+        }
+    }
+}
+
+.line-graph-tooltip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+
+    &.transition {
+        opacity: 1;
+        transition: transform .3s, opacity .3s;
+    }
+}
+
+@keyframes dropIn {
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes background {
+    to {
+        background-size: 100% 100%;
+    }
+}
